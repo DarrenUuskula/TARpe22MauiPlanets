@@ -119,9 +119,14 @@
                         HorizontalOptions="Fill"
                         Margin="0,0,24,0"
                         HeightRequest="48">
+                        
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="6" />
                         </Border.StrokeShape>
+
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ProfilePic_Clicked" />
+                        </Border.GestureRecognizers>
 
                         <Grid HorizontalOptions="Fill"
                               VerticalOptions="Center"

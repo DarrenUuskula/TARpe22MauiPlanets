@@ -36,37 +36,83 @@
             VerticalOptions="Center" />
         
         <!--Main content scrollview-->
-        <VerticalStackLayout
-            Spacing="18">
-            
-            <!--Planet image-->
-            <Image 
-                Source="{Binding HeroImage}"
-                Aspect="AspectFit"
-                HorizontalOptions="Fill"
-                HeightRequest="240"
-                Margin="24,0"/>
-            
-            <!--Planet name-->
-            <Label 
-                Margin="0,-24,0,0"
-                Style="{StaticResource AllPlanetHeaderSubtitleStyle}"
-                Text="{Binding Name}"/>
-            
-            <!--Planet Subtitle-->
-            <Label 
-                Margin="0,-12,0,0"
-                Style="{StaticResource PageHeaderSubtitleStyle}"
-                Text="{Binding Subtitle}"/>
-            
-            <!--Divider-->
-            <Rectangle 
-                HorizontalOptions="Fill"
-                HeightRequest="2"
-                Stroke="Transparent"
-                Fill="{StaticResource LightBorderColor}"/>
+        <ScrollView
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            HorizontalScrollBarVisibility="Never"
+            VerticalScrollBarVisibility="Never"
+            Margin="0,16,0,0">
 
-        </VerticalStackLayout>
+
+
+
+            <VerticalStackLayout
+                    Spacing="18">
+
+                    <!--Planet image-->
+                    <Image 
+                        Source="{Binding HeroImage}"
+                        Aspect="AspectFit"
+                        HorizontalOptions="Fill"
+                        HeightRequest="240"
+                        Margin="24,0"/>
+
+                    <!--Planet name-->
+                    <Label 
+                        Margin="0,-24,0,0"
+                        Style="{StaticResource AllPlanetHeaderSubtitleStyle}"
+                        Text="{Binding Name}"/>
+
+                    <!--Planet Subtitle-->
+                    <Label 
+                        Margin="0,-12,0,0"
+                        Style="{StaticResource PageHeaderSubtitleStyle}"
+                        Text="{Binding Subtitle}"/>
+
+                    <!--Divider-->
+                    <Rectangle 
+                        HorizontalOptions="Fill"
+                        HeightRequest="2"
+                        Stroke="Transparent"
+                        Fill="{StaticResource LightBorderColor}"/>
+
+                    <Label
+                        Style="{StaticResource FeaturedPlanetHeaderSubtitleStyle}"
+                        Text="Gallery"/>
+
+                <CollectionView
+                        Margin="0, -6,0,0"
+                        HeightRequest="400"
+                        WidthRequest="400"
+                        ItemsSource="{Binding Images}">
+
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout
+                                Orientation="Vertical"
+                                ItemSpacing="16">
+
+                        </LinearItemsLayout>
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Image
+                                Source="{Binding .}"
+                                Aspect="AspectFill"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center">
+
+
+                            </Image>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+            </VerticalStackLayout>
+
+        </ScrollView>
 
     </Grid>
     
